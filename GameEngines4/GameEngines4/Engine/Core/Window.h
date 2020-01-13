@@ -24,7 +24,8 @@ public:
 
 
 private:
-	void SetAttributes();
+	void SetPreAttributes();
+	void SetPostAttributes();
 	int width;
 	int height;
 	

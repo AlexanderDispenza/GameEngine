@@ -1,0 +1,3 @@
+[INFO]: Creating Start Scenein: StartScene.cpp on line: 16
+[INFO]: PogU! in: CoreEngine.cpp on line: 43
+[INFO]: Creating Game Scenein: GameScene.cpp on line: 16

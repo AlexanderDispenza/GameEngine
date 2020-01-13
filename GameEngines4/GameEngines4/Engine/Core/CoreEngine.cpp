@@ -1,4 +1,5 @@
 #include "CoreEngine.h"
+#include "Debugger.h"
 
 std::unique_ptr<CoreEngine> CoreEngine::engineInstance = nullptr;
 
@@ -6,6 +7,9 @@ CoreEngine::CoreEngine()
 {
 	window = nullptr;
 	isRunning = false;
+	fps = 120;
+	gameInterface = nullptr;
+	currentSceneNum = 0;
 }
 
 CoreEngine::~CoreEngine()
@@ -15,12 +19,29 @@ CoreEngine::~CoreEngine()
 
 bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 {
+	Debugger::DebugInit();
+	Debugger::SetSeverity(MessageType::TYPE_INFO);
+
 	window = new Window();
 	if (!window->OnCreate(name_, width_, height_))
 	{
 		std::cout << ("Window failed to initialize") << std::endl;
 		isRunning = false;
 	}
+
+	if (gameInterface) 
+	{
+		if (!gameInterface->OnCreate()) 
+		{
+			//-------DEBUG HERE------
+		}
+
+	}
+
+	timer.Start();
+
+	Debugger::Info("PogU! ", "CoreEngine.cpp", __LINE__);
+	
 	return isRunning = true;
 }
 
@@ -28,8 +49,10 @@ void CoreEngine::Run()
 {
 	while (isRunning)
 	{
-		Update(0.016f);
+		timer.UpdateFrameTick();
+		Update(timer.GetDeltaTime());
 		Render();
+		SDL_Delay(timer.GetSleepTime(fps));
 	}
 
 	if (!isRunning) 
@@ -43,10 +66,13 @@ bool CoreEngine::GetIsRunning() const
 	return isRunning;
 }
 
+
 void CoreEngine::EventHandler()
 {
+	// checks if there is a pending event 
 	while (SDL_PollEvent(&eventWindow) > 0) 
 	{
+		// if the event is the close button then set isRunning to false
 		if (eventWindow.type == SDL_QUIT) 
 		{
 			isRunning = false;
@@ -64,9 +90,33 @@ CoreEngine* CoreEngine::GetInstance()
 	return engineInstance.get();
 }
 
-void CoreEngine::Update(float deltaTime_)
+void CoreEngine::SetGameInterface(GameInterface* gameInterface_)
+{
+	gameInterface = gameInterface_;
+}
+
+int CoreEngine::GetCurrentScene()
+{
+	return currentSceneNum;
+}
+
+void CoreEngine::SetCurrentScene(int sceneNum_)
+{
+	currentSceneNum = sceneNum_;
+}
+
+void CoreEngine::Exit()
+{
+	isRunning = false;
+}
+
+void CoreEngine::Update(const float deltaTime_)
 {
 	EventHandler();
+	if (gameInterface)
+	{
+		gameInterface->Update(deltaTime_);
+	}
 }
 
 void CoreEngine::Render()
@@ -74,11 +124,18 @@ void CoreEngine::Render()
 	glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//Rend Game
+	if (gameInterface) 
+	{
+		gameInterface->Render();
+	}
 	SDL_GL_SwapWindow(window->GetWindow());
 }
 
 void CoreEngine::OnDestroy()
 {
+	delete gameInterface;
+	gameInterface = nullptr;
+
 	delete window;
 	window = nullptr;
 
