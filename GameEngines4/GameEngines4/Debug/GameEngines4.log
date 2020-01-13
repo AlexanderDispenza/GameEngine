@@ -1,4 +1,6 @@
 ﻿  CoreEngine.cpp
+  main.cpp
   Window.cpp
   Generating Code...
-  GameEngines4.vcxproj -> C:\Users\Alexander Dispenza\source\repos\GameEngines4\Debug\GameEngines4.exe
+  LINK : C:\Users\Alexander Dispenza\source\repos\GitHubRepo\GameEngine\GameEngines4\Debug\GameEngines4.exe not found or not built by the last incremental link; performing full link
+  GameEngines4.vcxproj -> C:\Users\Alexander Dispenza\source\repos\GitHubRepo\GameEngine\GameEngines4\Debug\GameEngines4.exe
