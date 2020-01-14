@@ -25,7 +25,7 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 	window = new Window();
 	if (!window->OnCreate(name_, width_, height_))
 	{
-		std::cout << ("Window failed to initialize") << std::endl;
+		Debugger::FatalError("Window failed to initialize ", "CoreEngine.cpp ", __LINE__);
 		isRunning = false;
 	}
 
@@ -40,7 +40,7 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 
 	timer.Start();
 
-	Debugger::Info("PogU! ", "CoreEngine.cpp", __LINE__);
+	Debugger::Info("Engine launched successfully ", "CoreEngine.cpp ", __LINE__);
 	
 	return isRunning = true;
 }

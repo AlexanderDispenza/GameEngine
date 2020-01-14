@@ -13,7 +13,7 @@ GameScene::~GameScene()
 
 bool GameScene::OnCreate()
 {
-	Debugger::Info("Creating Game Scene", "GameScene.cpp", __LINE__);
+	Debugger::Info("Creating Game Scene ", "GameScene.cpp", __LINE__);
 	return true;
 }
 

@@ -6,7 +6,7 @@
 #include <SDL_opengl.h>
 #include <string>
 #include <iostream>
-
+#include "../Core/Debugger.h"
 
 class Window
 {
