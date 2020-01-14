@@ -34,6 +34,7 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 		if (!gameInterface->OnCreate()) 
 		{
 			//-------DEBUG HERE------
+			Debugger::FatalError("GameInterface failed to initialize! ", "CoreEngine.cpp ", __LINE__);
 		}
 
 	}

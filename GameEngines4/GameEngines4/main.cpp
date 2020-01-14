@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 
 	if (!CoreEngine::GetInstance()->OnCreate("Engine Window", 800, 600)) 
 	{
-		std::cout << ("Engine failed to be created") << std::endl;
+		Debugger::Error("Engine failed to be created ", "main.cpp ", __LINE__);
 		return 0;
 	}
 
