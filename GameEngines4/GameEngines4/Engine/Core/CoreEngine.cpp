@@ -7,9 +7,9 @@ CoreEngine::CoreEngine()
 {
 	window = nullptr;
 	isRunning = false;
-	fps = 120;
+	fps = 144;
 	gameInterface = nullptr;
-	currentSceneNum = 0;
+	currentSceneNum = 0; 
 }
 
 CoreEngine::~CoreEngine()
@@ -33,7 +33,6 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 	{
 		if (!gameInterface->OnCreate()) 
 		{
-			//-------DEBUG HERE------
 			Debugger::FatalError("GameInterface failed to initialize! ", "CoreEngine.cpp ", __LINE__);
 		}
 
