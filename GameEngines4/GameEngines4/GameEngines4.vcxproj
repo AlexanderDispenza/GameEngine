@@ -146,12 +146,15 @@
   <ItemGroup>
     <ClCompile Include="Engine\Core\Debugger.cpp" />
     <ClCompile Include="Engine\Core\CoreEngine.cpp" />
+    <ClCompile Include="Engine\Rendering\3D\GameObject.cpp" />
     <ClCompile Include="GAME\Game1.cpp" />
     <ClCompile Include="GAME\Scenes\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Engine\Core\Window.cpp" />
     <ClCompile Include="Engine\Core\Timer.cpp" />
     <ClCompile Include="GAME\Scenes\StartScene.cpp" />
+    <ClCompile Include="Engine\Rendering\3D\Mesh.cpp" />
+    <ClCompile Include="Engine\Rendering\3D\Model.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Core\Debugger.h" />
@@ -160,9 +163,12 @@
     <ClInclude Include="Engine\Core\Scene.h" />
     <ClInclude Include="Engine\Core\Window.h" />
     <ClInclude Include="Engine\Core\Timer.h" />
+    <ClInclude Include="Engine\Rendering\3D\GameObject.h" />
     <ClInclude Include="GAME\Game1.h" />
     <ClInclude Include="GAME\Scenes\GameScene.h" />
     <ClInclude Include="GAME\Scenes\StartScene.h" />
+    <ClInclude Include="Engine\Rendering\3D\Mesh.h" />
+    <ClInclude Include="Engine\Rendering\3D\Model.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

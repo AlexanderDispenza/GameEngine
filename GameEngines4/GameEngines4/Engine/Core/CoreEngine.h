@@ -6,7 +6,9 @@
 #include "GameInterface.h"
 #include "Scene.h"
 #include "Debugger.h"
+#include "../Rendering/3D/GameObject.h"
 #include <memory>
+
 
 class CoreEngine
 {
