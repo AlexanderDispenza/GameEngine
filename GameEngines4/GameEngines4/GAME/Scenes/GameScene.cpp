@@ -15,17 +15,32 @@ GameScene::~GameScene()
 bool GameScene::OnCreate()
 {
 	Debugger::Info("Creating Game Scene ", "GameScene.cpp", __LINE__);
+	
 	Vertex v;
 	std::vector<Vertex> vertexList;
-	
-	v.position = glm::vec3(0.0f, 0.5f, 0.0f);
-	vertexList.push_back(v);
+	//--------------------------------
+	Vertex v2;
+	//----------------------------------
 
+	v.position = glm::vec3(-0.5f, 0.5f, 0.0f);
+	vertexList.push_back(v);
+		
 	v.position = glm::vec3(-0.5f, -0.5f, 0.0f);
 	vertexList.push_back(v);
 
 	v.position = glm::vec3(0.5f, -0.5f, 0.0f);
 	vertexList.push_back(v);
+
+	//----------------------------------------
+	v2.position = glm::vec3(0.5f, 0.5f, 0.0f);
+	vertexList.push_back(v2);
+
+	v2.position = glm::vec3(0.5f, -0.5f, 0.0f);
+	vertexList.push_back(v2);
+
+	v2.position = glm::vec3(-0.5f, 0.5f, 0.0f);
+	vertexList.push_back(v2);
+	//----------------------------------------
 
 	Model* model = new Model();
 	model->AddMesh(new Mesh(&vertexList));
