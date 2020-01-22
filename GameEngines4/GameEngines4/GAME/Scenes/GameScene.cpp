@@ -18,9 +18,6 @@ bool GameScene::OnCreate()
 	
 	Vertex v;
 	std::vector<Vertex> vertexList;
-	//--------------------------------
-	Vertex v2;
-	//----------------------------------
 
 	v.position = glm::vec3(-0.5f, 0.5f, 0.0f);
 	vertexList.push_back(v);
@@ -31,16 +28,14 @@ bool GameScene::OnCreate()
 	v.position = glm::vec3(0.5f, -0.5f, 0.0f);
 	vertexList.push_back(v);
 
-	//----------------------------------------
-	v2.position = glm::vec3(0.5f, 0.5f, 0.0f);
-	vertexList.push_back(v2);
+	v.position = glm::vec3(0.5f, 0.5f, 0.0f);
+	vertexList.push_back(v);
 
-	v2.position = glm::vec3(0.5f, -0.5f, 0.0f);
-	vertexList.push_back(v2);
+	v.position = glm::vec3(0.5f, -0.5f, 0.0f);
+	vertexList.push_back(v);
 
-	v2.position = glm::vec3(-0.5f, 0.5f, 0.0f);
-	vertexList.push_back(v2);
-	//----------------------------------------
+	v.position = glm::vec3(-0.5f, 0.5f, 0.0f);
+	vertexList.push_back(v);
 
 	Model* model = new Model();
 	model->AddMesh(new Mesh(&vertexList));
