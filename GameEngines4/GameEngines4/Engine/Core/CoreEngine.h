@@ -1,13 +1,14 @@
 #ifndef COREENGINE_H
 #define COREENGINE_H
 
+#include <memory>
 #include "Window.h"
 #include "Timer.h"
 #include "GameInterface.h"
 #include "Scene.h"
 #include "Debugger.h"
 #include "../Rendering/3D/GameObject.h"
-#include <memory>
+#include "../Graphics/ShaderHandler.h"
 
 
 class CoreEngine
