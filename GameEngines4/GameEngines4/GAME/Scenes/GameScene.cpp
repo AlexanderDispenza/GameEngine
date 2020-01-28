@@ -24,6 +24,7 @@ bool GameScene::OnCreate()
 	vertexList.push_back(v);
 		
 	v.position = glm::vec3(-0.5f, -0.5f, 0.0f);
+	v.colour = glm::vec3(1.0f, 1.0f, 1.0f);
 	vertexList.push_back(v);
 
 	v.position = glm::vec3(0.5f, -0.5f, 0.0f);

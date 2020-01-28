@@ -39,7 +39,7 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 		{
 			Debugger::FatalError("GameInterface failed to initialize! ", "CoreEngine.cpp ", __LINE__);
 		}
-
+		//italian sause xxx is gud
 	}
 
 	timer.Start();
