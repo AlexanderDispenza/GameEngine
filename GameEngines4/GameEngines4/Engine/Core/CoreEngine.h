@@ -9,6 +9,7 @@
 #include "Debugger.h"
 #include "../Rendering/3D/GameObject.h"
 #include "../Graphics/ShaderHandler.h"
+#include "../Camera/Camera.h"
 
 
 class CoreEngine
@@ -33,7 +34,14 @@ public:
 	int GetCurrentScene();
 	void SetCurrentScene(int sceneNum_);
 
+	glm::vec2 GetWindowSize() const;
+
+	Camera* GetCamera() const;
+	void SetCamera(Camera* camera_);
+
 	void Exit();
+
+
 
 private:
 	CoreEngine();
@@ -57,6 +65,8 @@ private:
 	GameInterface* gameInterface;
 
 	int currentSceneNum;
+
+	Camera* camera;
 };
 #endif
 

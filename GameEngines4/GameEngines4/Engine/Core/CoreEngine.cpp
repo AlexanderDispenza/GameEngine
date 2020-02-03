@@ -10,6 +10,7 @@ CoreEngine::CoreEngine()
 	fps = 144;
 	gameInterface = nullptr;
 	currentSceneNum = 0; 
+	camera = nullptr;
 }
 
 CoreEngine::~CoreEngine()
@@ -109,6 +110,21 @@ void CoreEngine::SetCurrentScene(int sceneNum_)
 	currentSceneNum = sceneNum_;
 }
 
+glm::vec2 CoreEngine::GetWindowSize() const
+{
+	return glm::vec2(window->GetWidth(), window->GetHeight());
+}
+
+Camera* CoreEngine::GetCamera() const
+{
+	return camera;
+}
+
+void CoreEngine::SetCamera(Camera* camera_)
+{
+	camera = camera_;
+}
+
 void CoreEngine::Exit()
 {
 	isRunning = false;
@@ -125,7 +141,7 @@ void CoreEngine::Update(const float deltaTime_)
 
 void CoreEngine::Render()
 {
-	glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//Rend Game
 	if (gameInterface) 
@@ -137,6 +153,9 @@ void CoreEngine::Render()
 
 void CoreEngine::OnDestroy()
 {
+	delete camera;
+	camera = nullptr;
+
 	delete gameInterface;
 	gameInterface = nullptr;
 

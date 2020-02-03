@@ -1,5 +1,5 @@
-[INFO]: NVIDIA Corporationin:  Window.cpp  on line: 54
-[INFO]: 4.5.0 NVIDIA 441.87in:  Window.cpp  on line: 58
+[INFO]: NVIDIA Corporationin:  Window.cpp  on line: 55
+[INFO]: 4.5.0 NVIDIA 441.87in:  Window.cpp  on line: 59
 [INFO]: Creating Start Scene in: StartScene.cpp on line: 16
-[INFO]: Engine launched successfully in: CoreEngine.cpp  on line: 47
-[INFO]: Creating Game Scene in: GameScene.cpp on line: 17
+[INFO]: Engine launched successfully in: CoreEngine.cpp  on line: 48
+[INFO]: Creating Game Scene in: GameScene.cpp on line: 53

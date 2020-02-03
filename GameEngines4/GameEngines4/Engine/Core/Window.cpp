@@ -47,7 +47,8 @@ bool Window::OnCreate(std::string name_, int width_, int height_)
 
 	glEnable(GL_DEPTH_TEST);
 
-	
+	glViewport(0, 0, width, height);
+
 	// Converting const char to string by storing in new string 
 	const GLubyte* GPUInfo = glGetString(GL_VENDOR);
 	std::string SgpuInfo((char*)GPUInfo);
