@@ -34,13 +34,17 @@ bool CoreEngine::OnCreate(std::string name_, int width_, int height_)
 		"Engine/Shaders/ColourVertexShader.glsl",
 		"Engine/Shaders/ColourFragmentShader.glsl");
 
+	ShaderHandler::GetInstance()->CreateProgram("basicShader", 
+		"Engine/Shaders/VertexShader.glsl",
+		"Engine/Shaders/FragementShader.glsl");
+
 	if (gameInterface) 
 	{
 		if (!gameInterface->OnCreate()) 
 		{
 			Debugger::FatalError("GameInterface failed to initialize! ", "CoreEngine.cpp ", __LINE__);
 		}
-		//italian sause xxx is gud
+		
 	}
 
 	timer.Start();

@@ -1,2 +1,4 @@
-﻿  GameScene.cpp
+﻿  TextureHandler.cpp
+C:\Users\Alexander Dispenza\source\repos\GitHubRepo\GameEngine\GameEngines4\GameEngines4\Engine\Graphics\TextureHandler.cpp(61,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Alexander Dispenza\source\repos\GitHubRepo\GameEngine\GameEngines4\GameEngines4\Engine\Graphics\TextureHandler.cpp(62,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   GameEngines4.vcxproj -> C:\Users\Alexander Dispenza\source\repos\GitHubRepo\GameEngine\GameEngines4\Debug\GameEngines4.exe

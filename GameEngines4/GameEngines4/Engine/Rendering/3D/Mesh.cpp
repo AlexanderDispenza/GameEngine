@@ -1,7 +1,7 @@
 #include "Mesh.h"
 
 
-Mesh::Mesh(std::vector<Vertex>* vertexList_, GLuint shaderProgram_)
+Mesh::Mesh(std::vector<Vertex>* vertexList_, GLuint shaderProgram_, GLuint textureId_)
 {
 	vertextList = std::vector<Vertex>();
 	vertextList.reserve(100);
@@ -12,6 +12,8 @@ Mesh::Mesh(std::vector<Vertex>* vertexList_, GLuint shaderProgram_)
 	modelLocation = 0;
 	viewLocation = 0;
 	projectionLocation = 0;
+	textureLocation = 0;
+	textureId = textureId_;
 	shaderProgram = shaderProgram_;
 
 	GenerateBuffers();
@@ -24,15 +26,19 @@ Mesh::~Mesh()
 }
 
 void Mesh::Render(Camera* camera_, glm::mat4 transform_)
-{
-	glBindVertexArray(VAO);
+{	
+	glUniform1i(textureLocation, 0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, textureId);
 
 	glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(transform_));
 	glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(camera_->GetView()));
 	glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, glm::value_ptr(camera_->GetPerspective()));
 
+	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLES, 0, vertextList.size());
 	glBindVertexArray(0);
+	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void Mesh::GenerateBuffers()
@@ -65,4 +71,6 @@ void Mesh::GenerateBuffers()
 	modelLocation = glGetUniformLocation(shaderProgram, "model");
 	viewLocation = glGetUniformLocation(shaderProgram, "view");
 	projectionLocation = glGetUniformLocation(shaderProgram, "projection");
+	textureLocation = glGetUniformLocation(shaderProgram, "inputTexture");
+
 }
